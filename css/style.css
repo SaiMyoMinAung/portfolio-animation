@@ -391,10 +391,10 @@ flex: flex-grow flex-shrink flex-basis
   top: 0;
   left: 0;
   width: 0;
-  height:100%;
+  height: 100%;
   content: "";
   background: var(--second-bg-color);
-  transition: .5s;
+  transition: 0.5s;
 }
 
 .education-column .content:hover::before {
@@ -418,4 +418,65 @@ flex: flex-grow flex-shrink flex-basis
 
 .education-column .content .year i {
   padding-right: 0.5rem;
+}
+
+/* Skill Section */
+.skill {
+  padding-bottom: 40rem;
+}
+
+.skill-row {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.skill-row .skill-column {
+  flex: 1 1 40rem;
+}
+
+.skill-row .skill-column .title {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+}
+
+.skill-box {
+  border: 0.2rem solid var(--main-color);
+  border-radius: 0.5rem;
+  padding: 2rem 1rem;
+}
+
+.skill-box .skill-content .progress h3 {
+  display: flex;
+  font-size: 1.5rem;
+  justify-content: space-between;
+}
+
+.skill-box .skill-content .progress .bar {
+  /* display: block; */
+  height: 2.5rem;
+  padding: 0.3rem;
+  margin: 1rem 0;
+  border: 0.2rem solid var(--main-color);
+  
+}
+
+.skill-content .progress .bar span {
+  display: block;
+  height: 100%;
+  /* width: 100%; */
+  border-radius: 0.3rem;
+  background: var(--main-color);
+}
+
+.skill-column:nth-child(1) .skill-content .progress:nth-child(1) .bar span {
+  width: 90%;
+}
+
+.skill-column:nth-child(1) .skill-content .progress:nth-child(2) .bar span {
+  width: 80%;
+}
+
+.skill-column:nth-child(1) .skill-content .progress:nth-child(3) .bar span {
+  width: 50%;
 }
