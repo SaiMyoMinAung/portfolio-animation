@@ -1,0 +1,421 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  border: none;
+  outline: none;
+  scroll-behavior: smooth;
+  font-family: "Poppins", sans-serif;
+}
+/* 
+Define color in :root and
+use by using var(--bg-color)
+ */
+:root {
+  --bg-color: #081b29;
+  --second-bg-color: #112e42;
+  --text-color: #ffffff;
+  --main-color: #00abf0;
+}
+/* 
+font size in html define font size the whole project.
+ */
+html {
+  font-size: 62.5%;
+  overflow-x: hidden;
+}
+
+body {
+  background: var(--bg-color);
+  color: var(--text-color);
+}
+
+/*
+background: transparent; is very look good
+*/
+.header {
+  position: fixed;
+  left: 0;
+  top: 0;
+  display: flex;
+  padding: 2rem 9%;
+  /* background: greenyellow; */
+  background: transparent;
+  width: 100%;
+  justify-content: space-between;
+  z-index: 100;
+  align-items: center;
+}
+
+.logo {
+  font-size: 2.5rem;
+  color: var(--text-color);
+  font-weight: 600;
+}
+
+.navbar a {
+  font-size: 1.7rem;
+  color: var(--text-color);
+  margin-left: 3.5rem;
+  transition: 0.3s;
+  font-weight: 500;
+}
+
+.navbar a:hover,
+.navbar .active {
+  color: var(--main-color);
+}
+
+#menu-icon {
+  font-size: 3.6rem;
+  color: var(--text-color);
+  cursor: pointer;
+  display: none;
+}
+
+/* 
+  home section
+  100vh is view port height same to percentage.
+  padding: 10rem(top) 9%(left right) 2rem(bottom); 
+ */
+section {
+  min-height: 100vh;
+  padding: 12rem 9% 2rem;
+}
+
+/*
+padding: 0 9%; overwrite the above section padding: 12rem 9% 2rem;
+*/
+.home {
+  display: flex;
+  align-items: center;
+  padding: 0 9%;
+  background: url("/images/home.jpg") no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.home-content {
+  max-width: 60rem;
+}
+
+.home-content h1 {
+  font-size: 5.6rem;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.home-content .text-animate {
+  position: relative;
+  width: 33rem;
+}
+
+.home-content .text-animate h3 {
+  font-size: 3.2rem;
+  font-weight: 700;
+  color: transparent;
+  -webkit-text-stroke: 0.7px var(--main-color);
+}
+
+.home-content p {
+  font-size: 1.6rem;
+  margin: 2rem 0 4rem;
+}
+
+.btn-box {
+  display: flex;
+  position: relative;
+  justify-content: space-between;
+  width: 34.5rem;
+  height: 5rem;
+}
+/*
+  display: inline-flex; make the inline element to follow flex rule.
+  i.e, to effect justify-content:center; align-items: center;
+  border: 2rem solid var(--main-color); make the a anchor to center
+*/
+.btn-box .btn {
+  font-size: 1.8rem;
+  position: relative;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 15rem;
+  height: 100%;
+  background: var(--main-color);
+  border: 0.2rem solid var(--main-color);
+  border-radius: 0.8rem;
+  letter-spacing: 0.1rem;
+  font-weight: 600;
+  color: var(--bg-color);
+  overflow: hidden;
+  z-index: 1;
+}
+
+.btn-box .btn:hover {
+  color: var(--main-color);
+}
+
+.btn-box .btn:nth-child(2) {
+  color: var(--main-color);
+  background: transparent;
+}
+
+.btn-box .btn:nth-child(2)::before {
+  background-color: var(--main-color);
+  color: var(--bg-color);
+}
+
+.btn-box .btn:nth-child(2):hover {
+  color: var(--bg-color);
+}
+
+/*
+background-color: red; affect text area only.
+backgound: red; affect the whole space;
+*/
+.btn-box .btn::before {
+  position: absolute;
+  content: "";
+  left: 0;
+  top: 0;
+  width: 0%;
+  height: 100%;
+  background: var(--bg-color);
+  z-index: -1;
+  transition: 0.5s;
+}
+
+.btn-box .btn:hover::before {
+  width: 100%;
+}
+
+.home-sci {
+  position: absolute;
+  bottom: 4rem;
+  width: 170px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.home-sci a {
+  position: relative;
+  background: transparent;
+  display: inline-flex;
+  padding: 1rem;
+  border-radius: 50%;
+  border: 0.1rem solid var(--main-color);
+  font-size: 20px;
+  color: var(--main-color);
+  overflow: hidden;
+  z-index: 1;
+}
+
+.home-sci a::before {
+  position: absolute;
+  content: "";
+  left: 0;
+  top: 0;
+  width: 0;
+  height: 100%;
+  color: var(--bg-color);
+  background: var(--main-color);
+  z-index: -1;
+  transition: 0.4s;
+}
+
+.home-sci a:hover {
+  color: var(--bg-color);
+}
+
+.home-sci a:hover::before {
+  width: 100%;
+}
+/*
+position :relative does not affect height:100% but affect height:100px
+*/
+.home-image-hover {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 45%;
+  height: 100%;
+  background: transparent;
+  transition: 3s;
+}
+.home-image-hover:hover {
+  background: var(--bg-color);
+  opacity: 0.8;
+}
+
+.about {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  background: var(--second-bg-color);
+  padding-bottom: 6rem;
+}
+
+.heading {
+  font-size: 5rem;
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+span {
+  color: var(--main-color);
+}
+
+.about-img {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 25rem;
+  height: 25rem;
+  border-radius: 50%;
+}
+
+.about-img img {
+  position: relative;
+  width: 90%;
+  border-radius: 50%;
+  border: 0.2rem solid var(--main-color);
+}
+
+.about-img .circle-spin {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 100%;
+  height: 100%;
+  transform: translate(-50%, -50%) rotate(0);
+  border-left: 0.3rem solid red;
+  border-right: 0.3rem solid red;
+  border-top: 0.3rem solid var(--bg-color);
+  border-bottom: 0.3rem solid var(--bg-color);
+  border-radius: 50%;
+}
+
+.about-content {
+  text-align: center;
+}
+.about-content h3 {
+  font-size: 2.3rem;
+  text-align: center;
+}
+
+.about-content p {
+  font-size: 2rem;
+  margin: 2rem 0 3rem;
+}
+
+/*
+without space between .btn-box.btns 
+to overwrite the previous .btn-box defined as flex
+*/
+.btn-box.btns {
+  display: inline-block;
+  width: 15rem;
+}
+
+.btn-box.btns a::before {
+  background: var(--second-bg-color);
+}
+
+.education {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  min-height: auto;
+}
+
+.education .education-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5rem;
+}
+
+/*
+flex: flex-grow flex-shrink flex-basis
+*/
+.education-row .education-column {
+  flex: 1 1 40rem;
+}
+
+.education-column .title {
+  font-size: 2.5rem;
+  margin: 0 0 1.5rem 1rem;
+}
+
+.education-column .education-box {
+  border-left: 0.2rem solid var(--main-color);
+}
+
+.education-column .education-content {
+  position: relative;
+  padding-left: 2rem;
+}
+
+.education-column .content {
+  position: relative;
+  border: 0.2rem solid var(--main-color);
+  border-radius: 1rem;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.education-column .education-content::before {
+  z-index: -1;
+  position: absolute;
+  top: 0rem;
+  left: -1.1rem;
+  width: 2rem;
+  height: 2rem;
+  content: "";
+  border-radius: 50%;
+  background: var(--main-color);
+}
+
+.education-column .content::before {
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height:100%;
+  content: "";
+  background: var(--second-bg-color);
+  transition: .5s;
+}
+
+.education-column .content:hover::before {
+  width: 100%;
+}
+
+.education-column .content .year {
+  font-size: 1.5rem;
+  color: var(--main-color);
+  padding-bottom: 0.5rem;
+}
+
+.education-column .content h3 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.education-column .content p {
+  font-size: 1.2rem;
+}
+
+.education-column .content .year i {
+  padding-right: 0.5rem;
+}
